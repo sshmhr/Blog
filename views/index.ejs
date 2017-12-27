@@ -1,0 +1,36 @@
+<!-- class="ui rounded image centered"-->
+<% include partials/header %>
+<div class="ui main container text ">
+      <div class="ui huge header">
+             B:L:O:G:S By Suyash Mehra
+        </div>
+        <div class="ui  segment top green  attached">
+            <div class="ui divided items">
+    <% blogs.forEach(function(blog){ %>
+           <div class="item">
+               <div class="image">
+                   <img src="<%= blog.image %>"></img>
+               </div>
+
+            <div class="content">
+                    <a class="header" href="/blogs/<%=blog._id%>"><%= blog.title %></a>
+                      <div class="meta">
+                <span><%= blog.created.toDateString();%></span>
+                </div>
+                 <div class="description">
+                <p><%- blog.body.substring(0,200) %></p>
+            </div>
+                <div class="extra">
+                    <a href="/blogs/<%=blog._id%>" class="ui button green inverted  floated">
+                        Read more<i class="icon right chevron"></i>
+
+                        </a>
+                </div>
+            </div>
+</div>
+
+    <% }); %>
+    </div>
+    </div>
+</div>
+<% include partials/footer %>
